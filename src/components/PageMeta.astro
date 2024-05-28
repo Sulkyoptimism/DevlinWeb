@@ -4,7 +4,6 @@ import {
   SITE_TITLE,
   SITE_DESCRIPTION,
   SITE_URL,
-  TWITTER_HANDLE,
 } from "../config"
 
 export interface Props {
@@ -19,11 +18,9 @@ const { meta, og, twitter } = getPageMeta({
   description: description || SITE_DESCRIPTION,
   baseUrl: SITE_URL,
   // ogImageAbsoluteUrl: `${SITE_URL}/images/og.png`,
-  ogImageAltText: "Vlady's thoughts",
+  ogImageAltText: "Liam's thoughts",
   ogImageWidth: 1200,
   ogImageHeight: 630,
-  siteOwnerTwitterHandle: TWITTER_HANDLE,
-  contentAuthorTwitterHandle: TWITTER_HANDLE,
 })
 ---
 

@@ -1,0 +1,14 @@
+---
+import PageLayout from "../layouts/PageLayout.astro"
+import PageMeta from "../components/PageMeta.astro"
+import { SITE_TITLE } from "../config"
+
+
+---
+
+<PageLayout>
+  <PageMeta title={`${SITE_TITLE}`} slot="meta" />
+  <section slot="main">
+
+  </section>
+</PageLayout>
