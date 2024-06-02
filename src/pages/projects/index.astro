@@ -1,11 +1,58 @@
 ---
-
 import PageLayout from "../../layouts/PageLayout.astro";
 import PageMeta from "../../components/PageMeta.astro";
-import {MY_NAME} from "../../config";---
+import {MY_NAME} from "../../config";
 
 
+---
 <PageLayout>
-    <PageMeta title={ MY_NAME + "'s Projects"}></PageMeta>
+    <PageMeta title={ MY_NAME + "'s Projects"} slot="meta"/>
+      <section slot="main" class="grid gap-5">
+      <div id="ldprojects">
+        <h1><b>Projects</b></h1>
+        <ul>
+          <li>
+            <h2><a href="https://github.com/tadgem/harmony">Harmony</a></h2>
+            <h3>Cross platform 3D Game Engine</h3>
+            <ul>
+              <li>Harmony is a 3D game engine I have been developing since 2022. Built using SDL2 + BGFX as the primary graphics stack,
+              the engine has a strong focus on compatibility and cross platform support. It currently compiles and runs on Windows, Linux (personally tested Ubuntu 22.04) and macOS (tested using an M1 Mac Mini)</li>
+              <li>Modular design: Harmony is comprised of a core and several modules. This allows for features with complicated dependencies (see Mono) to be optional to the engine, and be added if the destination platform can support the module. Additionally this also allows editor-specific modules, to keep the size of the Harmony Runtime App small, for instance Assimp, a hefty model importing library, can be excluded from the runtime of the game once the engine has processed the model into a custom format.</li>
+              <li>True ECS design: Entities are simply identifiers, all component data is stored in an optimal fashion in the scene. This allows for greater cache coherency when processing systems with many entities, and also allows for flexible querying of related entities.</li>
+              <li>Editor built using <a href="https://github.com/ocornut/imgui">ImGui</a> meaning users of the engine can easily access the immediate mode UI API to add additional editor functionality for there game.</li>
+              <li>Harmony also features a <a href="https://github.com/jrouwe/JoltPhysics">Jolt Physics</a> integration, which allows for a vast number of physical bodies to be simulated efficiently, and provides a clean interfact to the physics world & bodies.</li>
+              <li>Harmony also has extensive scripting support, with the ability to script your game using C# (Mono) or Lua (Lua & LuaJIT available through a compile option). <br/> When using C#, Harmony also features a <a href="https://github.com/tadgem/HarmonyToolsVS">Visual Studio extension</a> that allows debugging of C# Scripts at runtime, an invaluable asset debugging logic errors.</li>
+              <li>Simple Pipeline Renderer architecture which relates shaders + renderers to the framebuffers + attachments they require. <b>NOTE:</b> this area of the engine is currently being rewritten to be more efficient and make use of <a href="https://www.vulkan.org/">Vulkan</a> which supports the platforms Harmony targets <i>and</i> allows for greatly increased performance through minimised CPU usage by offloading of essential tasks such as skinning and particle systems to the GPU.</li>
+              <li>Serialization infrastructure via JSON</li>
+              <li>Hot reloading of Shaders, Lua Scripts and Mono Assemblies</li>
+              <li>
+                Gallery
+                <ul>
+                  <li>Physics & C# Scripting Demo
+                    <img src="/gifs/HarmonyPhysicsRuntime.gif" alt="Harmony Physics Runtime Demo"/>
+                  </li>
+                  <li>C# Debugging
+                    <img src="/gifs/harmonycsharpdebugger.gif" alt="Harmony C# Debugging Demo"/>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>LVK<li>
+          <li>GraphScript</li>
+          <li>Helin (UE5)</li>
+        </ul>
+      </div>
+    </section>
 
 </PageLayout>
+
+<style>
+  h1 {
+    font-size: 1.25rem;
+  }
+  li,
+  p {
+    font-size: 0.85rem;
+  }
+</style>
