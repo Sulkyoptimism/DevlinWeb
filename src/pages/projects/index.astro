@@ -1,100 +1,216 @@
 ---
-import PageLayout from "../../layouts/PageLayout.astro";
-import PageMeta from "../../components/PageMeta.astro";
-import {MY_NAME} from "../../config";
-
-
+import PageLayout from "../../layouts/PageLayout.astro"
+import PageMeta from "../../components/PageMeta.astro"
+import { MY_NAME } from "../../config"
 ---
-<PageLayout>
-    <PageMeta title={ MY_NAME + "'s Projects"} slot="meta"/>
-      <section slot="main" class="grid gap-5">
-      <div id="ldprojects">
-        <h1><b>Projects</b></h1>
-        <h2><a href="https://github.com/tadgem/harmony">Harmony</a></h2>
-        <h3>Cross platform 3D Game Engine</h3>
-        <ul>
-            <ul>
-              <li>Harmony is a 3D game engine I have been developing since 2022. Built using SDL2 + BGFX as the primary graphics stack,
-              the engine has a strong focus on compatibility and cross platform support. It currently compiles and runs on Windows, Linux (personally tested Ubuntu 22.04) and macOS (tested using an M1 Mac Mini.)</li>
-              <li>Modular design: Harmony is comprised of a core and several modules. This allows for features with complicated dependencies (e.g. Mono) to be optional to the engine, and be added if the destination platform can support the module. Additionally, this also allows editor-specific modules to keep the size of the Harmony Runtime App small, for instance Assimp, a hefty model importing library, can be excluded from the runtime of the game once the engine has processed the model into a custom format.</li>
-              <li>True ECS design: Entities are simply identifiers, all component data is stored in an optimal fashion in the scene. This allows for greater cache coherency when processing systems with many entities, and also allows for flexible querying of related entities.</li>
-              <li>Editor built using <a href="https://github.com/ocornut/imgui">ImGui</a> meaning users of the engine can easily access the immediate mode UI API to add additional editor functionality for their game.</li>
-              <li>Harmony also features <a href="https://github.com/jrouwe/JoltPhysics">Jolt Physics</a> integration, which allows for a vast number of physical bodies to be simulated efficiently, and provides a clean interface to the physics world & bodies.</li>
-              <li>Harmony also has extensive scripting support, with the ability to script your game using C# (Mono) or Lua (Lua & LuaJIT available through a compile option). When using C#, Harmony also features a <a href="https://github.com/tadgem/HarmonyToolsVS">Visual Studio extension</a> that allows debugging of C# Scripts at runtime, an invaluable asset debugging logic errors.</li>
-              <li>Simple Pipeline Renderer architecture which relates shaders + renderers to the framebuffers + attachments they require. <b>NOTE:</b> this area of the engine is currently being rewritten to be more efficient and make use of <a href="https://www.vulkan.org/">Vulkan</a> which supports the platforms Harmony targets <i>and</i> allows for greatly increased performance through minimised CPU usage by offloading of essential tasks such as skinning and particle systems to the GPU.</li>
-              <li>Serialization infrastructure via JSON.</li>
-              <li>Hot reloading of Shaders, Lua Scripts and Mono Assemblies.</li>
-            </ul>
-            <br/>
-            <h3><small>Gallery</small></h3>
-            <ul>
-              <li>Physics & C# Scripting Demo
-                <img src="/gifs/HarmonyPhysicsRuntime.gif" alt="Harmony Physics Runtime Demo"/>
-              </li>
-              <li>C# Debugging
-                <img src="/gifs/harmonycsharpdebugger.gif" alt="Harmony C# Debugging Demo"/>
-              </li>
-            </ul>
-          <br/>
-          <h2><a href="https://github.com/tadgem/lvk">LVK</a></h2>
-          <h2>Personal abstraction / demo repo for Vulkan</h2>
-          <h3><small>Features:</small></h3>
-            <ul>
-              <li>Automated descriptor set + associated buffer creation.</li>
-              <li>ImGui Integration.</li>
-              <li>Automated Mip Map generation for arbitrary textures.</li>
-              <li>Flexible Material system which allows OpenGL-like calls to shader uniforms.</li>
-              <li>Automated Render Pass creation based on framebuffer properites.</li>
-            </ul>
-            <br/>
-            <h4><small>Gallery</small></h4>
-              <ul>
-                <li>LVK Deferred Blinn-Phong Lighting 1
-                  <img src="/img/lvkdeferred.png" alt="deferred 1"/>
-                </li>
-                <li>LVK Deferred Blinn-Phong Lighting 2
-                  <img src="/img/lvkdeferred2.png" alt="deferred 2"/>
-                </li>
-              </ul>
-            </li>
-          <br/>
-          <h2>Helin</h2>
-          <h3>Group UE5 Project</h3>
-            <ul>
-              <li>Helin is a space puzzle and exploration game. The game revolves around local and online co-op (through Steam) where the players must work together to solve puzzles and uncover the secrets of the planet.</li>
-              <li>Helin was a group project I was involved in during 2021. We intended to produce a portfolio piece with the then early access release of Unreal Engine 5.</li>
-              <li>I was the lead programmer in this project with two other programmers working with me, alongside three designers and two artists.</li>
-              <li>The main responsibility of the programmers was to implement the core logic components in C++ and expose these building blocks to designers who could author new behaviour and puzzles using only blueprints.</li>
-              <li>Programmers also had to ensure that the correct replication logic (MultiCast, ServerOnly etc.) was considered as a core constraint for all new gameplay components.</li>
-              <br/>
-              <li><b>Key insights from this project:</b>
-                <ul>
-                  <li>Using C++ with Unreal.</li>
-                  <li>Exposing performant components to be reused by designers in Blueprints.</li>
-                  <li>Networked physics interactions.</li>
-                  <li>Replication logic for a networked Unreal engine game.</li>
-                  <li>Steam networking and sessioning.</li>
-                </ul>
-              </li>
-              <br/>
-              <h2><small>Gallery</small></h2>
-              <ul>
-              <li>Trailer
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/0QHX5SbKcRA?si=B5eNAgXsDjcopFUV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </li>
-              <li>Development Footage
-                <ul>
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/j-LO3sizqKE?si=uV52USALdda2GiMa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/NE0oORr_ckY?si=KC0CMBmwIizRtEYx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/xsHwpPUVrQg?si=3_GaU_xIORt9eTWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </ul>
-              </li>
-            </ul>
-            </ul>
-        </ul>
-      </div>
-    </section>
 
+<PageLayout>
+  <PageMeta title={MY_NAME + "'s Projects"} slot="meta" />
+  <section slot="main" class="grid gap-5">
+    <div id="ldprojects">
+      <h1><b>Projects</b></h1>
+      <h2><a href="https://github.com/tadgem/harmony">Harmony</a></h2>
+      <h3>Cross platform 3D Game Engine</h3>
+      <ul>
+        <ul>
+          <li>
+            Harmony is a 3D game engine I have been developing since 2022. Built
+            using SDL2 + BGFX as the primary graphics stack, the engine has a
+            strong focus on compatibility and cross platform support. It
+            currently compiles and runs on Windows, Linux (personally tested
+            Ubuntu 22.04) and macOS (tested using an M1 Mac Mini.)
+          </li>
+          <li>
+            Modular design: Harmony is comprised of a core and several modules.
+            This allows for features with complicated dependencies (e.g. Mono)
+            to be optional to the engine, and be added if the destination
+            platform can support the module. Additionally, this also allows
+            editor-specific modules to keep the size of the Harmony Runtime App
+            small, for instance Assimp, a hefty model importing library, can be
+            excluded from the runtime of the game once the engine has processed
+            the model into a custom format.
+          </li>
+          <li>
+            True ECS design: Entities are simply identifiers, all component data
+            is stored in an optimal fashion in the scene. This allows for
+            greater cache coherency when processing systems with many entities,
+            and also allows for flexible querying of related entities.
+          </li>
+          <li>
+            Editor built using <a href="https://github.com/ocornut/imgui"
+              >ImGui</a
+            > meaning users of the engine can easily access the immediate mode UI
+            API to add additional editor functionality for their game.
+          </li>
+          <li>
+            Harmony also features <a
+              href="https://github.com/jrouwe/JoltPhysics">Jolt Physics</a
+            > integration, which allows for a vast number of physical bodies to be
+            simulated efficiently, and provides a clean interface to the physics
+            world & bodies.
+          </li>
+          <li>
+            Harmony also has extensive scripting support, with the ability to
+            script your game using C# (Mono) or Lua (Lua & LuaJIT available
+            through a compile option). When using C#, Harmony also features a <a
+              href="https://github.com/tadgem/HarmonyToolsVS"
+              >Visual Studio extension</a
+            > that allows debugging of C# Scripts at runtime, an invaluable asset
+            debugging logic errors.
+          </li>
+          <li>
+            Simple Pipeline Renderer architecture which relates shaders +
+            renderers to the framebuffers + attachments they require. <b
+              >NOTE:</b
+            > this area of the engine is currently being rewritten to be more efficient
+            and make use of <a href="https://www.vulkan.org/">Vulkan</a> which supports
+            the platforms Harmony targets <i>and</i> allows for greatly increased
+            performance through minimised CPU usage by offloading of essential tasks
+            such as skinning and particle systems to the GPU.
+          </li>
+          <li>Serialization infrastructure via JSON.</li>
+          <li>Hot reloading of Shaders, Lua Scripts and Mono Assemblies.</li>
+        </ul>
+        <br />
+        <h3><small>Gallery</small></h3>
+        <ul>
+          <li>
+            Physics & C# Scripting Demo
+            <img
+              src="/gifs/HarmonyPhysicsRuntime.gif"
+              alt="Harmony Physics Runtime Demo"
+            />
+          </li>
+          <li>
+            C# Debugging
+            <img
+              src="/gifs/harmonycsharpdebugger.gif"
+              alt="Harmony C# Debugging Demo"
+            />
+          </li>
+        </ul>
+        <br />
+        <h2><a href="https://github.com/tadgem/lvk">LVK</a></h2>
+        <h2>Personal abstraction / demo repo for Vulkan</h2>
+        <h3><small>Features:</small></h3>
+        <ul>
+          <li>Automated descriptor set + associated buffer creation.</li>
+          <li>ImGui Integration.</li>
+          <li>Automated Mip Map generation for arbitrary textures.</li>
+          <li>
+            Flexible Material system which allows OpenGL-like calls to shader
+            uniforms.
+          </li>
+          <li>
+            Automated Render Pass creation based on framebuffer properites.
+          </li>
+        </ul>
+        <br />
+        <h4><small>Gallery</small></h4>
+        <ul>
+          <li>
+            LVK Deferred Blinn-Phong Lighting 1
+            <img src="/img/lvkdeferred.png" alt="deferred 1" />
+          </li>
+          <li>
+            LVK Deferred Blinn-Phong Lighting 2
+            <img src="/img/lvkdeferred2.png" alt="deferred 2" />
+          </li>
+        </ul>
+      </ul>
+      <br />
+      <h2>Helin</h2>
+      <h3>Group UE5 Project</h3>
+      <ul>
+        <li>
+          Helin is a space puzzle and exploration game. The game revolves around
+          local and online co-op (through Steam) where the players must work
+          together to solve puzzles and uncover the secrets of the planet.
+        </li>
+        <li>
+          Helin was a group project I was involved in during 2021. We intended
+          to produce a portfolio piece with the then early access release of
+          Unreal Engine 5.
+        </li>
+        <li>
+          I was the lead programmer in this project with two other programmers
+          working with me, alongside three designers and two artists.
+        </li>
+        <li>
+          The main responsibility of the programmers was to implement the core
+          logic components in C++ and expose these building blocks to designers
+          who could author new behaviour and puzzles using only blueprints.
+        </li>
+        <li>
+          Programmers also had to ensure that the correct replication logic
+          (MultiCast, ServerOnly etc.) was considered as a core constraint for
+          all new gameplay components.
+        </li>
+        <br />
+        <li>
+          <b>Key insights from this project:</b>
+          <ul>
+            <li>Using C++ with Unreal.</li>
+            <li>
+              Exposing performant components to be reused by designers in
+              Blueprints.
+            </li>
+            <li>Networked physics interactions.</li>
+            <li>Replication logic for a networked Unreal engine game.</li>
+            <li>Steam networking and sessioning.</li>
+          </ul>
+        </li>
+        <br />
+        <h2><small>Gallery</small></h2>
+        <ul>
+          <li>
+            Trailer
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/0QHX5SbKcRA?si=B5eNAgXsDjcopFUV"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </li>
+          <li>
+            Development Footage
+            <ul>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/j-LO3sizqKE?si=uV52USALdda2GiMa"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/NE0oORr_ckY?si=KC0CMBmwIizRtEYx"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/xsHwpPUVrQg?si=3_GaU_xIORt9eTWI"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </ul>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </section>
 </PageLayout>
 
 <style>

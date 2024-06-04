@@ -1,6 +1,6 @@
 ---
 import HeaderLink from "./HeaderLink.astro"
-import {GITHUB, MY_NAME, SITE_TITLE} from "../config";
+import { GITHUB, MY_NAME, SITE_TITLE } from "../config"
 // import DarkModeToggle from "./DarkModeToggle.astro"
 ---
 
@@ -16,16 +16,15 @@ import {GITHUB, MY_NAME, SITE_TITLE} from "../config";
       <ul class="unset flex gap-4 [&>li]:p-0">
         <!--<li><HeaderLink href="/">Blog</HeaderLink></li>-->
         <li><HeaderLink href="/">Resume</HeaderLink></li>
-        <li><HeaderLink href="/experience">Additional Info</HeaderLink></li>
         <li><HeaderLink href="/projects">Projects</HeaderLink></li>
-
+        <li><HeaderLink href="/experience">Additional Info</HeaderLink></li>
       </ul>
     </section>
   </nav>
   <div
     class="max-[375px]:hidden justify-self-end py-2 flex items-center content-center text-text-bold"
   >
-    { MY_NAME }
+    {MY_NAME}
     <a
       class="unset text-xl ml-4 hover:text-text-link"
       href={"https://github.com/" + GITHUB}
@@ -38,8 +37,10 @@ import {GITHUB, MY_NAME, SITE_TITLE} from "../config";
       class="unset text-xl ml-4 hover:text-text-link"
       href="https://linkedin.com/in/liam-devlin-9949b0153"
     >
-      <i class="fa-brands fa-linkedin" aria-hidden="true" title="Liam on LinkedIn"
-      ></i>
+      <i
+        class="fa-brands fa-linkedin"
+        aria-hidden="true"
+        title="Liam on LinkedIn"></i>
       <span class="fa-sr-only">LinkedIn</span>
     </a>
   </div>
