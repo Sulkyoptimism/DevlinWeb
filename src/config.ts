@@ -3,7 +3,7 @@
 
 export const SITE_TITLE = "Liam Devlin"
 export const GITHUB = "tadgem"
-export const SITE_DESCRIPTION = "Liam's thoughts"
+export const SITE_DESCRIPTION = "Liam's CV & Experience"
 export const MY_NAME = "Liam Devlin"
 
 // setup in astro.config.mjs
