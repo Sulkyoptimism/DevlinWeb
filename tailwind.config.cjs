@@ -2,6 +2,7 @@
 module.exports = {
   content: ["./src/**/*.astro"],
   darkMode: "class",
+  ".hidden": "display: none;",
   theme: {
     extend: {
       fontFamily: {
@@ -31,6 +32,7 @@ module.exports = {
         border: {
           code: "rgb(var(--color-border-code) / <alpha-value>)",
         },
+        ".hidden": "display: none;",
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -44,7 +46,7 @@ module.exports = {
                 "linear-gradient(to right, rgb(var(--color-text-link)/1), rgb(var(--color-text-link)/1))",
               "&:hover": {
                 color: "rgb(var(--color-text-link))",
-              },
+              }
             },
             "h1, h2, h3, h4, h5": {
               color: "rgb(var(--color-text-heading))",

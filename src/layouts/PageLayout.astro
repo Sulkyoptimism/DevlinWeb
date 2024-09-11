@@ -30,12 +30,15 @@ import Footer from "../components/Footer.astro"
   </head>
 
   <body class="min-h-screen max-w-3xl mx-auto px-6 sm:px-8">
-    <Header />
+    <Header/>
     <main id="main">
       <slot name="main" />
     </main>
     <Footer />
     <style>
+      head {
+        background-size: 100%;
+      }
       body {
         display: grid;
         grid-template-areas:

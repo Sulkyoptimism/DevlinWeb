@@ -1,32 +1,22 @@
 ---
 import HeaderLink from "./HeaderLink.astro"
 import {GITHUB, MY_NAME, SITE_TITLE} from "../config";
+import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
 // import DarkModeToggle from "./DarkModeToggle.astro"
 ---
 
-<header>
+<header class="header-outer flex grow v-64">
   <a
     class="unset absolute z-10 left-[50%] -top-[100rem] translate-x-[-50%] bg-white text-black px-8 py-2 focus:top-[initial]"
     href="#main"
   >
     Skip to content
   </a>
-  <nav>
-    <section class="text-text-bold">
-      <ul class="unset flex gap-4 [&>li]:p-0">
-        <!--<li><HeaderLink href="/">Blog</HeaderLink></li>-->
-        <li><HeaderLink href="/">Resume</HeaderLink></li>
-        <li><HeaderLink href="/experience">Additional Info</HeaderLink></li>
-        <li><HeaderLink href="/projects">Projects</HeaderLink></li>
-
-      </ul>
-    </section>
-  </nav>
-  <div
-    class="max-[375px]:hidden justify-self-end py-2 flex items-center content-center text-text-bold"
-  >
-    { MY_NAME }
-    <a
+  <div class="header-inner">
+    <Astronav>
+      <MenuIcon class="w-4 h-4 text-white-800"/>
+      { MY_NAME }
+      <a
       class="unset text-xl ml-4 hover:text-text-link"
       href={"https://github.com/" + GITHUB}
     >
@@ -42,17 +32,68 @@ import {GITHUB, MY_NAME, SITE_TITLE} from "../config";
       ></i>
       <span class="fa-sr-only">LinkedIn</span>
     </a>
+      
+      <MenuItems class="hidden open">
+        <ul class="flex lg:flex-row lg:gap-2 bg-rect">
+          <li><HeaderLink href="/">Resume</HeaderLink></li>
+          <li><HeaderLink href="/experience">Additional Info</HeaderLink></li>
+          <li><HeaderLink href="/projects">Projects</HeaderLink></li>
+          <li>
+            <Dropdown class="group bg-rect">              
+              <button class="unset animated-link">Articles</button>
+              <DropdownItems>
+                <div>
+                  <ul>
+                    <li><HeaderLink href="/articles/gbuffer_voxelisation">SSVXGI Part 1 : Screen Space Voxelisation</HeaderLink></li>
+                  </ul>
+                </div>
+              </DropdownItems>
+            </Dropdown>
+          </li>
+        </ul>
+      </MenuItems>
+    </Astronav>
   </div>
   <!-- <DarkModeToggle /> -->
 </header>
 <style>
-  header {
-    grid-area: header;
-    display: grid;
+  header-outer {
     align-items: center;
-    grid-template-columns: minmax(0, 1fr) minmax(0, max-content) minmax(
-        0,
-        max-content
-      );
+    background: white;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    /* set the height for the header at its max height you want */
+    height: 100%;
+    position: sticky;
+    /** set the value of `top` with the difference between
+    * the height of the outer and inner container to compensate
+    * for this */
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+  }
+
+  header-inner {
+    align-items: center;
+    background: white;
+    display: flex;
+    /** specify the height of the header that you want when scrolling 
+    *The difference between this height and the height of the outer header
+    *is the value of the `top` of the outer container */
+    height: 100%;
+    justify-content: space-between;
+    left: 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding-top: 65px;
+  }
+  bg-rect {
+      width:100%;
+      height:100%;
+      background:blue;
   }
 </style>
