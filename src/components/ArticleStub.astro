@@ -1,0 +1,15 @@
+---
+type Props = {
+    articleName: string
+    textStub: string
+    tags: string[]
+    link: string
+}
+
+const { articleName, textStub, tags, link} = Astro.props
+---
+
+<div class="flex flex-col w-72 border p-2 border-solid border-gray-400 rounded">
+    <h2 class="font-bold my-2 text-center"><a href={link}>{ articleName }</a></h2>
+    <span class="text-sm text-center">{textStub}</span>
+</div>

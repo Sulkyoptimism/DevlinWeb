@@ -38,18 +38,7 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu
           <li><HeaderLink href="/">Resume</HeaderLink></li>
           <li><HeaderLink href="/experience">Additional Info</HeaderLink></li>
           <li><HeaderLink href="/projects">Projects</HeaderLink></li>
-          <li>
-            <Dropdown class="group bg-rect">              
-              <button class="unset animated-link">Articles</button>
-              <DropdownItems>
-                <div>
-                  <ul>
-                    <li><HeaderLink href="/articles/gbuffer_voxelisation">SSVXGI Part 1 : Screen Space Voxelisation</HeaderLink></li>
-                  </ul>
-                </div>
-              </DropdownItems>
-            </Dropdown>
-          </li>
+          <li><HeaderLink href="/articles/">Articles</HeaderLink></li>
         </ul>
       </MenuItems>
     </Astronav>
@@ -57,43 +46,10 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu
   <!-- <DarkModeToggle /> -->
 </header>
 <style>
-  header-outer {
-    align-items: center;
-    background: white;
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.1);
-    display: flex;
-    /* set the height for the header at its max height you want */
-    height: 100%;
-    position: sticky;
-    /** set the value of `top` with the difference between
-    * the height of the outer and inner container to compensate
-    * for this */
-    width: 100%;
-    z-index: 1;
-    position: fixed;
-    left:0;
-    right:0;
-    top:0;
+  .header-outer {
   }
 
-  header-inner {
-    align-items: center;
-    background: white;
-    display: flex;
-    /** specify the height of the header that you want when scrolling 
-    *The difference between this height and the height of the outer header
-    *is the value of the `top` of the outer container */
-    height: 100%;
-    justify-content: space-between;
-    left: 0;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    padding-top: 65px;
-  }
-  bg-rect {
-      width:100%;
-      height:100%;
-      background:blue;
+  .header-inner {
+
   }
 </style>
