@@ -1,8 +1,6 @@
 ---
 import HeaderLink from "./HeaderLink.astro"
-import {GITHUB, MY_NAME, SITE_TITLE} from "../config";
-import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
-// import DarkModeToggle from "./DarkModeToggle.astro"
+import { GITHUB, MY_NAME } from "../config"
 ---
 
 <header class="header-outer flex grow v-64">
@@ -12,44 +10,35 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu
   >
     Skip to content
   </a>
-  <div class="header-inner">
-    <Astronav>
-      <MenuIcon class="w-4 h-4 text-white-800"/>
-      { MY_NAME }
-      <a
-      class="unset text-xl ml-4 hover:text-text-link"
-      href={"https://github.com/" + GITHUB}
-    >
-      <i class="fa-brands fa-github" aria-hidden="true" title="GitHub"></i>
-      <span class="fa-sr-only">GitHub</span>
-    </a>
 
-    <a
-      class="unset text-xl ml-4 hover:text-text-link"
-      href="https://linkedin.com/in/liam-devlin-9949b0153"
-    >
-      <i class="fa-brands fa-linkedin" aria-hidden="true" title="Liam on LinkedIn"
-      ></i>
-      <span class="fa-sr-only">LinkedIn</span>
-    </a>
-      
-      <MenuItems class="hidden open">
-        <ul class="flex lg:flex-row lg:gap-2 bg-rect">
-          <li><HeaderLink href="/">Resume</HeaderLink></li>
-          <li><HeaderLink href="/experience">Additional Info</HeaderLink></li>
-          <li><HeaderLink href="/projects">Projects</HeaderLink></li>
-          <li><HeaderLink href="/articles/">Articles</HeaderLink></li>
-        </ul>
-      </MenuItems>
-    </Astronav>
-  </div>
-  <!-- <DarkModeToggle /> -->
+  <nav>
+    <section class="text-text-bold">
+      <ul class="unset flex gap-4 [&>li]:p-0">
+        <li><HeaderLink href="/">Resume</HeaderLink></li>
+        <li><HeaderLink href="/experience">Additional Info</HeaderLink></li>
+        <li><HeaderLink href="/projects">Projects</HeaderLink></li>
+        <li><HeaderLink href="/blog">Articles</HeaderLink></li>
+      </ul>
+    </section>
+  </nav>
+
+  <span class="ml-auto">{MY_NAME}</span>
+  <a
+    class="unset text-xl ml-4 hover:text-text-link"
+    href={"https://github.com/" + GITHUB}
+  >
+    <i class="fa-brands fa-github" aria-hidden="true" title="GitHub"></i>
+    <span class="fa-sr-only">GitHub</span>
+  </a>
+
+  <a
+    class="unset text-xl ml-4 hover:text-text-link"
+    href="https://linkedin.com/in/liam-devlin-9949b0153"
+  >
+    <i class="fa-brands fa-linkedin" aria-hidden="true" title="Liam on LinkedIn"
+    ></i>
+    <span class="fa-sr-only">LinkedIn</span>
+  </a>
 </header>
-<style>
-  .header-outer {
-  }
 
-  .header-inner {
-
-  }
-</style>
+<style></style>
