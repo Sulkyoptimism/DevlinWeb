@@ -9,6 +9,32 @@ import { MY_NAME } from "../../config"
   <section slot="main" class="grid gap-5">
     <div id="ldprojects">
       <h1><b>Projects</b></h1>
+      <h2><a href="https://github.com/tadgem/gem">GEM Engine</a></h2>
+      <h3>Rendering Framework & Testbed</h3>
+      <ul>
+        <li>GEM is my personal repo for learning and implementing new graphics techniques, 
+          currently these are implemented in OpenGL, when the renderer is complete and the
+          shaders are stable, this will be ported over to SDL-GPU for cross platform compatibility, 
+          as well as a dedicated Vulkan backend, which will allow for cutting edge features to be added
+          to the renderer (including hardware-accelerated RT, AI assisted upscaling and Frame Generation)
+        </li>
+        <h3><small>Gallery</small></h3>
+        <ul>
+          <li>
+            GBuffer Voxelisation
+            <img src="/gifs/gemgbuffervoxels.gif" alt="Screen Space Reflections" />
+          </li>
+          <li>
+            Screen Space Reflections
+            <img src="/img/gemssr.png" alt="Screen Space Reflections" />
+          </li>
+          <li>
+            Asynchronous Asset Streaming
+            <img src="/gifs/gemasyncasset.gif" alt="Async Asset Submission" />
+          </li>
+        </ul>
+      </ul>
+      <br/>
       <h2><a href="https://github.com/tadgem/harmony">Harmony</a></h2>
       <h3>Cross platform 3D Game Engine</h3>
       <ul>
@@ -109,12 +135,16 @@ import { MY_NAME } from "../../config"
         <h4><small>Gallery</small></h4>
         <ul>
           <li>
-            LVK Deferred Blinn-Phong Lighting 1
-            <img src="/img/lvkdeferred.png" alt="deferred 1" />
+            Interactive Lighting demo
+            <img src="/gifs/lvklighting.gif" alt="Lighting Demo" />
           </li>
           <li>
-            LVK Deferred Blinn-Phong Lighting 2
-            <img src="/img/lvkdeferred2.png" alt="deferred 2" />
+            Custom Im3D Backend
+            <img src="/img/lvkim3dbackend.png" alt="LVK Custom Im3D Backend" />
+          </li>
+          <li>
+            Deferred Blinn-Phong Lighting
+            <img src="/img/lvkdeferred.png" alt="Blinn Phong Deferred Lighting" />
           </li>
         </ul>
       </ul>
