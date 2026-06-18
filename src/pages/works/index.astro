@@ -1,0 +1,58 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro"
+import PageMeta from "../../components/PageMeta.astro"
+import { SITE_TITLE } from "../../config"
+
+export const prerender = true
+---
+
+<PageLayout>
+  <PageMeta title={`${SITE_TITLE}`} slot="meta" />
+  <section slot="main" class="grid gap-5">
+    <div id="experience">
+      <h1><b>Game Credits</b></h1>
+
+      <div id="experience-content" class="grid gap-8">
+        <section>
+          <div class="flex justify-between">
+            <h2>
+              <i>Upcoming project from Blazing Griffin Games.</i>
+            </h2>
+          </div>
+          <div class="flex justify-between">
+            <h2>
+              <a href="https://www.rockstargames.com/VI">GTA VI - Designer: Systems</a>
+            </h2>
+          </div>
+          <div class="flex justify-between">
+            <h2>
+              <a href="https://www.rockstargames.com/reddeadredemption2">Red Dead Redemption II - Designer: Systems</a>
+            </h2>
+          </div>
+          <div class="flex justify-between">
+            <h2>
+              <a href="https://www.rockstargames.com/gta-v">GTA V - Designer : Systems</a>
+            </h2>
+          </div>
+          <div class="flex justify-between">
+            <h2>
+              <a href="https://store.steampowered.com/app/1057560/Rebound_Dodgeball_Evolved/">Rebound: Dodgeball Evolved - Designer : Systems</a>
+            </h2>
+          </div>
+          
+        </section>
+
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  h1 {
+    font-size: 1.25rem;
+  }
+  li,
+  p {
+    font-size: 0.85rem;
+  }
+</style>
